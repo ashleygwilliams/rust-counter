@@ -13,7 +13,7 @@ fn main() {
 
   for line_result in stdin.lock().lines() {
     let line = line_result.unwrap().to_lowercase();
-    let words: Vec<_> = is_a_word.find_iter(&line)
+    let words: Vec<String> = is_a_word.find_iter(&line)
       .map(|word| word.as_str().to_string())
       .collect();
 
