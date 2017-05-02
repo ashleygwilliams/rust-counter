@@ -9,11 +9,9 @@ fn main() {
   let is_a_word = Regex::new(r"[a-z']+").unwrap();
   let mut counts: BTreeMap<String, isize> = BTreeMap::new();
 
-  let mut buffer = String::new();
   let stdin = io::stdin();
-  let mut handle = stdin.lock();
 
-  for line_result in handle.lines() {
+  for line_result in stdin.lock().lines() {
     let line = line_result.unwrap().to_lowercase();
     let words: Vec<_> = is_a_word.find_iter(&line)
       .map(|word| word.as_str().to_string())
