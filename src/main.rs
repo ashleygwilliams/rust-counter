@@ -7,7 +7,7 @@ use regex::Regex;
 
 fn main() {
   let is_a_word = Regex::new(r"[a-z']+").unwrap();
-  let mut counts: BTreeMap<String, usize> = BTreeMap::new();
+  let mut counts: BTreeMap<String, u64> = BTreeMap::new();
 
   let stdin = io::stdin();
 
@@ -24,7 +24,7 @@ fn main() {
   }
 }
 
-fn print_counts(counts: &BTreeMap<String, usize>) {
+fn print_counts(counts: &BTreeMap<String, u64>) {
   for (word, count) in counts.iter() {
     println!("{}: {}", word, count);
   }
